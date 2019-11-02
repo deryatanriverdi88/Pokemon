@@ -13,11 +13,15 @@ class PokemonCard extends React.Component {
     const hp = this.props.pokemon.stats.find(s => s.name === 'hp').value
     return (
       <Card onClick={() => {this.setState({front: !this.state.front})}}>
-        {this.state.front ?
+        
         <div>
+          {this.state.front ?
           <div className="image">
             <img alt="oh no!" src={sprites.front} />
-          </div>
+          </div> : 
+           <div className="image">
+           <img alt="back" src={sprites.back} />
+          </div> }
           <div className="content">
             <div className="header">{name}</div>
           </div>
@@ -28,9 +32,7 @@ class PokemonCard extends React.Component {
             </span>
           </div>
         </div>
-        :
-        null
-        }
+        
       </Card>
     )
   }
